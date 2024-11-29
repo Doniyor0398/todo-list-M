@@ -25,18 +25,15 @@ function showMenu(rl, notes, notesFile) {
             case "2":
                 console.log("\nВсе заметки:");
                 const allNotes = readNotes(notesFile);
-
-                // Фильтруем заметки, чтобы удалить пустые строки
+																
                 const filteredNotes = allNotes.filter(
                     (note) => note.trim() !== ""
                 );
 
-                // Отображаем отфильтрованные заметки
                 filteredNotes.forEach((note, index) => {
                     console.log(`${index + 1}: ${note}`);
                 });
 
-                // Передаем отфильтрованные заметки в showMenu
                 showMenu(rl, filteredNotes, notesFile);
                 break;
             case "3":
