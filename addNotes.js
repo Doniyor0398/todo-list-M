@@ -1,12 +1,12 @@
 const fs = require("fs");
 
-function addNotes(notesFile, note) {
+function addNotes(noteFile, note) {
     if (note) {
-        fs.appendFileSync(`./note/${notesFile}`, `${note}\n`, "utf-8");
-        console.log("Заметка добавлена!");
+        fs.appendFileSync(`./note/${noteFile}`, `${note}\n`, "utf-8");
+
+        console.log("---Заметка успешно добавлено---> ", note);
     } else {
-        console.log("Заметка не может быть пустой!");
+        console.log("---Что то пошло не так попробуйте сново---> ");
     }
 }
-
 module.exports = addNotes;

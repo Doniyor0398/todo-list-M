@@ -1,21 +1,21 @@
 const fs = require("fs");
 const readline = require("readline");
 
-const readNote = require("./readNotes");
 const showMenu = require("./showMenu");
 
-const notesFile = "note.txt";
+const noteFile = "text.txt";
 
-if (!fs.existsSync("./note")) {
-    fs.mkdirSync("./note");
-    console.log("Папка создана");
+if (!fs.existsSync(`./note`)) {
+    fs.mkdirSync(`./note`);
+
+    console.log("Папка успешно создано");
 } else {
     console.log("Папка уже существует");
 }
+if (!fs.existsSync(`./note/${noteFile}`)) {
+    fs.writeFileSync(`./note/${noteFile}`, "", "utf-8");
 
-if (!fs.existsSync(`./note/${notesFile}`)) {
-    fs.writeFileSync(`./note/${notesFile}`, "", "utf-8");
-    console.log("Файл создан");
+    console.log("Файл успешно создано");
 } else {
     console.log("Файл уже существует");
 }
@@ -25,4 +25,4 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
-showMenu(rl, readNote(notesFile), notesFile);
+showMenu(rl, noteFile);
